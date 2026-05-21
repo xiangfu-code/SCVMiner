@@ -5,7 +5,7 @@
 - Python version: `3.12`
 - Package manager: `uv`
 
-## gsc.py Interface Notes
+## scg/gsc.py Interface Notes
 
 `get_contract_graphs(sol_path, sol_version=None)` version resolution:
 
@@ -51,7 +51,7 @@ Libraries and interfaces are skipped as top-level graphs.
 
 ## Test Fixtures
 
-Solidity examples live in `gsc_tests/contracts/`.
+Solidity examples live in `test_contracts/`.
 
 Current fixtures cover:
 
@@ -65,6 +65,6 @@ Current fixtures cover:
 - Prefer editing files with `apply_patch`.
 - Keep changes scoped to the requested behavior.
 - Do not remove existing test fixtures unless requested.
-- If changing graph semantics, update both `gsc.py` documentation and
-  `gsc_tests/gsc_test.py` output if needed.
+- If changing graph semantics, update both `scg/gsc.py` documentation and
+  `scg/gsc_test.py` output if needed.
 - Run the demo/test script after graph logic changes.

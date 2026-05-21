@@ -1,0 +1,16 @@
+{
+  "source_dir": "/Users/xiangfu/Knowlearn/Python/SCVMiner/datasets",
+  "solidity_files": 300,
+  "code_blocks": 14183,
+  "token_count": 464168,
+  "vocabulary_size": 11126,
+  "vector_size": 256,
+  "window": 5,
+  "min_count": 1,
+  "workers": 4,
+  "epochs": 20,
+  "sg": 1,
+  "seed": 42,
+  "model_path": "/Users/xiangfu/Knowlearn/Python/SCVMiner/models/solidity_word2vec.model",
+  "vectors_path": "/Users/xiangfu/Knowlearn/Python/SCVMiner/models/solidity_word2vec.kv"
+}
