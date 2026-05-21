@@ -3,7 +3,9 @@
 """Build contract-level graphs from Solidity source files.
 
 Public interface:
-    solidity_to_graph(sol_path, sol_version=None) -> list[Graph]
+    get_contract_graphs(sol_path, sol_version=None) -> list[Graph]
+    get_contract_graph(sol_path, sol_version, contract_name) -> Graph
+    get_solidity_graph(sol_path, sol_version) -> Graph
 
 Config:
     DEFAULT_SOL_VERSION:
@@ -26,7 +28,8 @@ Args:
 
 Returns:
     A list of Graph objects, one for each contract in the Solidity file.
-    Libraries and interfaces are skipped.
+    Libraries and interfaces are skipped as top-level graphs, but their
+    functions/modifiers may be included when called by contract nodes.
 
 Graph fields:
     contract_name:
@@ -50,7 +53,7 @@ Node fields:
         Source code block for the function/modifier/state variable.
 
 Example:
-    graphs = solidity_to_graph("Token.sol", "0.8.20")
+    graphs = get_contract_graphs("Token.sol", "0.8.20")
     for graph in graphs:
         print(graph.contract_name, [node.name for node in graph.nodes], graph.edges)
 """
@@ -103,7 +106,7 @@ class Graph:
     edges: list[tuple[int, int]]
 
 
-def solidity_to_graph(sol_path: str | Path, sol_version: str | None = None) -> list[Graph]:
+def get_contract_graphs(sol_path: str | Path, sol_version: str | None = None) -> list[Graph]:
     """Convert Solidity source code to per-contract graphs.
 
     Args:
@@ -115,10 +118,109 @@ def solidity_to_graph(sol_path: str | Path, sol_version: str | None = None) -> l
 
     Returns:
         A list of ``Graph`` objects, one for each concrete/abstract contract in
-        the source file. Libraries and interfaces are ignored. Nodes include
-        functions, modifiers, and state variables.
+        the source file. Libraries and interfaces are not emitted as top-level
+        graphs. Nodes include each contract's functions, modifiers, and state
+        variables, plus external contract/library/interface functions and
+        modifiers directly called by those contract functions/modifiers.
     """
 
+    _path, slither = _load_slither(sol_path, sol_version)
+    graphs: list[Graph] = []
+
+    for contract in slither.contracts:
+        if contract.is_library or contract.is_interface:
+            continue
+
+        graphs.append(_build_contract_graph(contract))
+
+    return graphs
+
+
+def get_contract_graph(
+    sol_path: str | Path,
+    sol_version: str | None,
+    contract_name: str,
+) -> Graph:
+    """Return the graph for a single contract in a Solidity source file.
+
+    Args:
+        sol_path: Path to a Solidity source file.
+        sol_version: Optional compiler version for solc-select. If ``None``,
+            version resolution follows the same rules as ``get_contract_graphs``.
+        contract_name: Name of the contract whose graph should be returned.
+
+    Raises:
+        ValueError: If no non-library, non-interface graph with ``contract_name``
+            exists in the source file.
+    """
+
+    for graph in get_contract_graphs(sol_path, sol_version):
+        if graph.contract_name == contract_name:
+            return graph
+
+    raise ValueError(f"Contract graph not found for {contract_name!r} in {sol_path}")
+
+
+def get_solidity_graph(sol_path: str | Path, sol_version: str | None = None) -> Graph:
+    """Convert one Solidity source file to a single graph.
+
+    The node and edge semantics match ``get_contract_graphs``. The returned graph
+    may contain multiple connected components. Concrete/abstract contract
+    functions, modifiers, and state variables are included even when isolated.
+    Library/interface functions and modifiers are included only when they have a
+    call edge to or from another function/modifier in the same source file.
+    """
+
+    path, slither = _load_slither(sol_path, sol_version)
+    graph_members: list[Function | StateVariable] = []
+    contract_callables: list[Function] = []
+    external_callables: list[Function] = []
+
+    for contract in slither.contracts:
+        callable_nodes = _contract_callable_nodes(contract)
+        if contract.is_library or contract.is_interface:
+            external_callables.extend(callable_nodes)
+            continue
+
+        contract_callables.extend(callable_nodes)
+        graph_members.extend(callable_nodes)
+        graph_members.extend(contract.state_variables_declared)
+
+    all_callables = contract_callables + external_callables
+    callable_set = set(all_callables)
+    connected_external_callables: set[Function] = set()
+
+    for source in all_callables:
+        for target in _called_functions(source):
+            if target not in callable_set:
+                continue
+            if source in external_callables:
+                connected_external_callables.add(source)
+            if target in external_callables:
+                connected_external_callables.add(target)
+
+    graph_members.extend(
+        function for function in external_callables if function in connected_external_callables
+    )
+    member_to_node_id = {member: index for index, member in enumerate(graph_members)}
+    callable_nodes = contract_callables + [
+        function for function in external_callables if function in connected_external_callables
+    ]
+
+    nodes = [
+        Node(
+            id=index,
+            name=f"{_member_contract_name(member)}.{member.name}",
+            text=_source_text(member),
+            kind=_node_kind(member),
+        )
+        for index, member in enumerate(graph_members)
+    ]
+    edges = _collect_edges(callable_nodes, member_to_node_id)
+    return Graph(contract_name=path.stem, nodes=nodes, edges=edges)
+
+
+def _load_slither(sol_path: str | Path, sol_version: str | None) -> tuple[Path, Slither]:
     path = Path(sol_path)
     if not path.exists():
         raise FileNotFoundError(f"Solidity file does not exist: {path}")
@@ -131,36 +233,55 @@ def solidity_to_graph(sol_path: str | Path, sol_version: str | None = None) -> l
         "solc_disable_warnings": True,
         "solc_solcs_select": resolved_sol_version,
     }
+    return path, Slither(str(path), **slither_kwargs)
 
-    slither = Slither(str(path), **slither_kwargs)
-    graphs: list[Graph] = []
 
-    for contract in slither.contracts:
-        if contract.is_library or contract.is_interface:
-            continue
+def _contract_callable_nodes(contract: Any) -> list[Function]:
+    return [
+        function
+        for function in contract.functions_and_modifiers_declared
+        if _is_real_function_or_modifier(function)
+    ]
 
-        callable_nodes = [
-            function
-            for function in contract.functions_and_modifiers_declared
-            if _is_real_function_or_modifier(function)
-        ]
-        state_variables = contract.state_variables_declared
-        graph_members = callable_nodes + state_variables
-        member_to_node_id = {member: index for index, member in enumerate(graph_members)}
 
-        nodes = [
-            Node(
-                id=index,
-                name=f"{contract.name}.{member.name}",
-                text=_source_text(member),
-                kind=_node_kind(member),
-            )
-            for index, member in enumerate(graph_members)
-        ]
-        edges = _collect_edges(callable_nodes, member_to_node_id)
-        graphs.append(Graph(contract_name=contract.name, nodes=nodes, edges=edges))
+def _build_contract_graph(contract: Any) -> Graph:
+    callable_nodes = _contract_callable_nodes(contract)
+    graph_members: list[Function | StateVariable] = [
+        *callable_nodes,
+        *contract.state_variables_declared,
+        *_called_external_functions(callable_nodes, contract),
+    ]
+    member_to_node_id = {member: index for index, member in enumerate(graph_members)}
+    nodes = [
+        Node(
+            id=index,
+            name=f"{_member_contract_name(member)}.{member.name}",
+            text=_source_text(member),
+            kind=_node_kind(member),
+        )
+        for index, member in enumerate(graph_members)
+    ]
+    edges = _collect_edges(_callable_members(graph_members), member_to_node_id)
+    return Graph(contract_name=contract.name, nodes=nodes, edges=edges)
 
-    return graphs
+
+def _called_external_functions(functions: list[Function], contract: Any) -> list[Function]:
+    external_functions: list[Function] = []
+    seen: set[Function] = set()
+
+    for function in functions:
+        for target in _called_functions(function):
+            target_contract = getattr(target, "contract_declarer", None) or getattr(target, "contract", None)
+            if target_contract is contract or target in seen:
+                continue
+            seen.add(target)
+            external_functions.append(target)
+
+    return external_functions
+
+
+def _callable_members(members: list[Function | StateVariable]) -> list[Function]:
+    return [member for member in members if isinstance(member, Function)]
 
 
 def _resolve_sol_version(path: Path, sol_version: str | None) -> str:
@@ -242,6 +363,11 @@ def _source_text(member: Function | StateVariable) -> str:
     return source_mapping.content
 
 
+def _member_contract_name(member: Function | StateVariable) -> str:
+    contract = getattr(member, "contract_declarer", None) or getattr(member, "contract", None)
+    return getattr(contract, "name", "")
+
+
 def _collect_edges(
     functions: list[Function],
     member_to_node_id: dict[Function | StateVariable, int],
@@ -292,6 +418,3 @@ def _called_functions(function: Function) -> list[Function]:
             called.append(modifier)
 
     return called
-
-
-get_contract_graphs = solidity_to_graph

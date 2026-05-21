@@ -7,7 +7,7 @@
 
 ## gsc.py Interface Notes
 
-`solidity_to_graph(sol_path, sol_version=None)` version resolution:
+`get_contract_graphs(sol_path, sol_version=None)` version resolution:
 
 1. If `sol_version` is provided, use it.
 2. Otherwise, extract a concrete version from `pragma solidity ...;`.
@@ -15,6 +15,18 @@
 4. Before running Slither, check whether that solc version is installed.
 5. If missing, run `uv run solc-select install <version>`.
 6. If installation fails, raise an exception with stdout/stderr details.
+
+`get_solidity_graph(sol_path, sol_version=None)` returns one graph for the
+whole Solidity source file. The graph may contain multiple connected components.
+Contract functions/modifiers/state variables may be isolated nodes.
+Library/interface functions and modifiers are included only when connected by a
+call edge; uncalled and non-calling library/interface functions/modifiers are
+not emitted as standalone nodes.
+
+`get_contract_graphs` and `get_contract_graph` skip libraries/interfaces as
+top-level graphs, but include external contract/library/interface
+functions/modifiers when directly called by the selected contract's
+functions/modifiers.
 
 `Graph` fields:
 
