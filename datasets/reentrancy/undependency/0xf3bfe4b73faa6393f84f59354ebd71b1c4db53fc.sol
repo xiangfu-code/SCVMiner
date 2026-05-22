@@ -2,7 +2,7 @@
  *Submitted for verification at Etherscan.io on 2019-04-29
 */
 
-pragma solidity ^0.4.18;
+pragma solidity 0.4.24;
 
 contract TVToken {
 

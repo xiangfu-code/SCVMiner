@@ -1,4 +1,4 @@
-pragma solidity ^0.4.2;
+pragma solidity 0.4.24;
 
 // The below two interfaces (KittyCore and SaleClockAuction) are from Crypto Kitties. This contract will have to call the Crypto Kitties contracts to find the owner of a Kitty, the properties of a Kitty and a Kitties price.
 interface KittyCore {

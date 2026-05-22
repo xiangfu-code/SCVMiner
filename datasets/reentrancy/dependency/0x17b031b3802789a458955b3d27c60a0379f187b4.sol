@@ -1,4 +1,4 @@
-pragma solidity ^0.4.0;
+pragma solidity 0.4.24;
 
 interface ERC20 {
     function transferFrom(address _from, address _to, uint _value) external returns (bool);

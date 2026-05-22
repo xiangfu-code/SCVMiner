@@ -71,7 +71,7 @@ from slither.core.declarations import Function, Modifier
 from slither.core.variables.state_variable import StateVariable
 
 
-DEFAULT_SOL_VERSION = "0.8.35"
+DEFAULT_SOL_VERSION = "0.4.24"
 _PRAGMA_SOLIDITY_PATTERN = re.compile(r"pragma\s+solidity\s+([^;]+);")
 _SEMVER_PATTERN = re.compile(r"\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?")
 SOLC_SELECT_COMMAND = ("uv", "run", "solc-select")

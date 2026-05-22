@@ -14,6 +14,9 @@ htmlcov/
 # Trained model artifacts
 models/
 
+# Generated graph data
+graphs/
+
 # Virtual environments
 .venv
 

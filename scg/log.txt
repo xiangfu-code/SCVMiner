@@ -1,0 +1,346 @@
+== pragma modification records 2026-05-22T22:24:34 ==
+[pragma-record] file=datasets/reentrancy/dependency/0x013f7a6b98010e85fd4c8887d30f48c409b5643d.sol original=^0.4.13 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x01d28329619796bae733e849696f80a764422700.sol original=^0.4.15 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x01d6208f95cf2292c350fc8bb1b1f29230352675.sol original=^0.4.13 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x020ddc98365d0199b4c7a2d769d685480789f67e.sol original=^0.4.21 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x0267ee183beebdb7f931afe41e4e25352195b871.sol original=^0.4.21 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x02c11f38bec96eb38c4dc2bcc8d669ae676fd7a9.sol original=^0.4.18 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x02cb5958a36145efbacb99fac2614657bf20d4e8.sol original=^0.4.11 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x02f61fd266da6e8b102d4121f5ce7b992640cf98.sol original=^0.4.13 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x031b042210b3f22f4aecfc75dc317f1e2c96b98c.sol original=^0.4.9 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x031e8de47dee0fdde1969a93b64bb8f8fbcba65d.sol original=^0.4.18 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x0333a8c69858382840ea4980d5550fcc632342f0.sol original=^0.4.20 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x04c2f74f7ce126ecbf39a89d8179f228dafbc500.sol original=^0.4.18 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x0cddd3191b99127f7014195a6f2cb71d0c4077a6.sol original=^0.4.1 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x0ce95ef378059f38c5fa21e6d81a5895c0d9911b.sol original=^0.4.13 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x0d49b24f068a9a3ef60576c7a915ffd6844d6fdd.sol original=^0.4.18 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x0d61178ce25bf05c5b19dc56f30e0f10cbbe9f2b.sol original=^0.4.20 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x0e54b1b8ff833b5f2b0d17453d97d340cb7576e4.sol original=^0.4.13 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x0e6457a564fd6780b5a8512707a46c43f3a49ffc.sol original=^0.4.21 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x0f00f1696218eaefa2d2330df3d6d1f94813b38f.sol original=^0.4.19 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x0f5ee401de162cd163b6ff46318eef2727dbb9fc.sol original=^0.4.11 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x17b031b3802789a458955b3d27c60a0379f187b4.sol original=^0.4.0 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x2682e3ad5358932ac5cd8f8616912cec76ad680c.sol original=^0.4.21 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x28f1135e43e61ebf303c8f1f9beef4f6a00dcb34.sol original=^0.4.19 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x29880855d419c6fa0e8c7fdfd985c80f286d914e.sol original=^0.4.11 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x3400696045f706f3309927cb8fdf63f07b616c6f.sol original=^0.4.13 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x3420894bf786866a09937b0369d5b4781870c21f.sol original=^0.4.13 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x37e343f2cc245754595f1ae3656b460c35d636fb.sol original=^0.4.18 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x39e8082b00c9f19ebf553e40feb7cf8459acc693.sol original=^0.4.13 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x39f996a2cafca0e593d0c46b8365d3936b6cc1cf.sol original=^0.4.17 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x3a715f7ee68d8d7b105f9cabd972f76cb8ea0710.sol original=^0.4.18 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x40da24a66f729d0bd0453681c5a6506bdc2a7a6a.sol original=^0.4.11 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x416e18790790edb098cb17a7d490caa1262f5772.sol original=^0.4.13 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x430e87a95a421437ccaa0af644ac57e22914b07a.sol original=^0.4.3 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x447b4ccab1b370afbe5ae2e68c0b700be913a585.sol original=^0.4.20 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x45afe0ff6a92bc9f346fc440a9d2a881d42094ff.sol original=^0.4.18 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0x4b96bf1fef93a216914fc843d81207a027ce52b3.sol original=^0.4.19 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/dependency/0xf64196754b5548eef6bfcc434465c0d218309914.sol original=^0.4.19 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/undependency/0x470142a1834438515b757118f322703aba6e1e05.sol original=^0.4.13 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/undependency/0xf3bfe4b73faa6393f84f59354ebd71b1c4db53fc.sol original=^0.4.18 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/undependency/0xf3c8ed6c721774c022c530e813a369dfe78a6e85.sol original=^0.4.2 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/undependency/0xf449ef0007c98761bdfced7ab1d0351f71d30468.sol original=^0.4.18 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/undependency/0xf4ac7eccd66a282920c131f96e716e3457120e03.sol original=^0.4.4 fixed=0.4.24
+[pragma-record] file=datasets/reentrancy/undependency/0xf4bc01f1de29385ad2d3cbc4d5cc7ab67d2091fc.sol original=^0.4.4 fixed=0.4.24
+[pragma-record][summary] total=43
+[ok] datasets/reentrancy/dependency/0x0000000000b3f879cb30fe243b4dfee438691c04.sol: nodes=26, edges=40, label=1
+[ok] datasets/reentrancy/dependency/0x000000002bb43c83ece652d161ad0fa862129a2c.sol: nodes=79, edges=150, label=1
+[ok] datasets/reentrancy/dependency/0x0111ac7e9425c891f935c4ce54cf16db7c14b7db.sol: nodes=151, edges=167, label=1
+[ok] datasets/reentrancy/dependency/0x0114289efe38186b732d12c07a1ce4341e266513.sol: nodes=68, edges=111, label=1
+[ok] datasets/reentrancy/dependency/0x012bc399c3e8b75a506c9ff2b7ad413641f33102.sol: nodes=30, edges=32, label=1
+[ok] datasets/reentrancy/dependency/0x013f7a6b98010e85fd4c8887d30f48c409b5643d.sol: nodes=165, edges=131, label=1
+[ok] datasets/reentrancy/dependency/0x0193cba9762dfe203a34bd895d0ddf4d876e0f98.sol: nodes=46, edges=61, label=1
+[ok] datasets/reentrancy/dependency/0x019e41a2acdffafc0303e840fbd7934234e68f45.sol: nodes=29, edges=31, label=1
+[ok] datasets/reentrancy/dependency/0x01c627181089b6e10ee8316ec08516b3df7c4845.sol: nodes=138, edges=250, label=1
+[ok] datasets/reentrancy/dependency/0x01c91a1b352a2903bc8378e5f645c9bc8685029e.sol: nodes=32, edges=48, label=1
+[ok] datasets/reentrancy/dependency/0x01d28329619796bae733e849696f80a764422700.sol: nodes=82, edges=107, label=1
+[ok] datasets/reentrancy/dependency/0x01d6208f95cf2292c350fc8bb1b1f29230352675.sol: nodes=67, edges=94, label=1
+[ok] datasets/reentrancy/dependency/0x01de9415d1ae14ab755186bea22923afe2934d82.sol: nodes=26, edges=37, label=1
+[ok] datasets/reentrancy/dependency/0x01e0f57c42bf976676ea1daa1b04d69aba6bdaf3.sol: nodes=14, edges=14, label=1
+[ok] datasets/reentrancy/dependency/0x01e6a8af629cc06ff37755a61d9e7dd1135d8c6a.sol: nodes=106, edges=146, label=1
+[ok] datasets/reentrancy/dependency/0x01eacc3ae59ee7fbbc191d63e8e1ccfdac11628c.sol: nodes=39, edges=89, label=1
+[ok] datasets/reentrancy/dependency/0x01f8c4e3fa3edeb29e514cba738d87ce8c091d3f.sol: nodes=13, edges=19, label=1
+[ok] datasets/reentrancy/dependency/0x020ddc98365d0199b4c7a2d769d685480789f67e.sol: nodes=46, edges=49, label=1
+[ok] datasets/reentrancy/dependency/0x02242d41c54f261a85ac8e8efa7046a3dfd53113.sol: nodes=10, edges=15, label=1
+[ok] datasets/reentrancy/dependency/0x025dce2d39a46296766db7cac8c322e8f59cd5d9.sol: nodes=27, edges=49, label=1
+[ok] datasets/reentrancy/dependency/0x0267ee183beebdb7f931afe41e4e25352195b871.sol: nodes=100, edges=148, label=1
+[ok] datasets/reentrancy/dependency/0x0297fdbcb9c2023bc05ad44c9f6e69b0ae6261ce.sol: nodes=11, edges=12, label=1
+[ok] datasets/reentrancy/dependency/0x02c11f38bec96eb38c4dc2bcc8d669ae676fd7a9.sol: nodes=25, edges=42, label=1
+[ok] datasets/reentrancy/dependency/0x02cb5958a36145efbacb99fac2614657bf20d4e8.sol: nodes=31, edges=24, label=1
+[ok] datasets/reentrancy/dependency/0x02d3aea48b443a0026ed9cbc91b97d7335aba323.sol: nodes=52, edges=98, label=1
+[ok] datasets/reentrancy/dependency/0x02dd48ff449f57a4632c39068e0ca0f4325c3a8d.sol: nodes=10, edges=15, label=1
+[ok] datasets/reentrancy/dependency/0x02f61fd266da6e8b102d4121f5ce7b992640cf98.sol: nodes=73, edges=134, label=1
+[ok] datasets/reentrancy/dependency/0x0317ada015cf35244b9f9c7d1f8f05c3651833ff.sol: nodes=59, edges=96, label=1
+[ok] datasets/reentrancy/dependency/0x031b042210b3f22f4aecfc75dc317f1e2c96b98c.sol: nodes=27, edges=38, label=1
+[ok] datasets/reentrancy/dependency/0x031e8de47dee0fdde1969a93b64bb8f8fbcba65d.sol: nodes=19, edges=26, label=1
+[ok] datasets/reentrancy/dependency/0x0333a8c69858382840ea4980d5550fcc632342f0.sol: nodes=51, edges=69, label=1
+[ok] datasets/reentrancy/dependency/0x03358425ada4620246dd703dc1f2246b8e148d22.sol: nodes=28, edges=28, label=1
+[ok] datasets/reentrancy/dependency/0x0356e14c2f8de339131c668c1747def594467a9a.sol: nodes=15, edges=14, label=1
+[ok] datasets/reentrancy/dependency/0x038ee87d74a14adf58eb71075ec9a0910fde353b.sol: nodes=37, edges=33, label=1
+[ok] datasets/reentrancy/dependency/0x046ec9bb312c51425f7a00b2ab7525afe7db52e6.sol: nodes=57, edges=80, label=1
+[ok] datasets/reentrancy/dependency/0x04c2f74f7ce126ecbf39a89d8179f228dafbc500.sol: nodes=19, edges=26, label=1
+[ok] datasets/reentrancy/dependency/0x065313f29dc4a4b8b5fc4915059d122065519957.sol: nodes=16, edges=12, label=1
+[ok] datasets/reentrancy/dependency/0x065d6fccf3bcc50e37e875479511f5ca656b98d8.sol: nodes=37, edges=33, label=1
+[ok] datasets/reentrancy/dependency/0x0692de52a966c107021e8a84db8486b4be57ecf1.sol: nodes=37, edges=33, label=1
+[ok] datasets/reentrancy/dependency/0x089a6d83282fb8988a656189f1e7a73fa6c1cac2.sol: nodes=77, edges=71, label=1
+[ok] datasets/reentrancy/dependency/0x0cddd3191b99127f7014195a6f2cb71d0c4077a6.sol: nodes=106, edges=179, label=1
+[ok] datasets/reentrancy/dependency/0x0ce95ef378059f38c5fa21e6d81a5895c0d9911b.sol: nodes=102, edges=295, label=1
+[ok] datasets/reentrancy/dependency/0x0d3456099d32e297805c5b07d9bc0b0b579206e1.sol: nodes=114, edges=166, label=1
+[ok] datasets/reentrancy/dependency/0x0d49b24f068a9a3ef60576c7a915ffd6844d6fdd.sol: nodes=28, edges=32, label=1
+[ok] datasets/reentrancy/dependency/0x0d5d4c289133ebf3eb685c183a930c1ee2ea4a4f.sol: nodes=10, edges=15, label=1
+[ok] datasets/reentrancy/dependency/0x0d5eae179709e92b3bff65731158e8291c49eafb.sol: nodes=37, edges=36, label=1
+[ok] datasets/reentrancy/dependency/0x0d61178ce25bf05c5b19dc56f30e0f10cbbe9f2b.sol: nodes=33, edges=45, label=1
+[ok] datasets/reentrancy/dependency/0x0d853d20b54b8abfacb05fc5e81e8d4395021c01.sol: nodes=55, edges=98, label=1
+[ok] datasets/reentrancy/dependency/0x0d88ed6e74bbfd96b831231638b66c05571e824f.sol: nodes=72, edges=57, label=1
+[ok] datasets/reentrancy/dependency/0x0da29f924c83b623ea25aa95eedcba060b8d7e12.sol: nodes=28, edges=37, label=1
+[ok] datasets/reentrancy/dependency/0x0da76de0916ef2da3c58a97e4d09d501c56a9f15.sol: nodes=10, edges=15, label=1
+[ok] datasets/reentrancy/dependency/0x0dae7caf45d9c473a8f6ae0d4934e5c3b2dbc371.sol: nodes=119, edges=167, label=1
+[ok] datasets/reentrancy/dependency/0x0e33ca464b1c76a384039eb1b7e9dc3b0416b5ae.sol: nodes=166, edges=337, label=1
+[ok] datasets/reentrancy/dependency/0x0e412af67f6c41e9209da8b8638d65bb883ddf5a.sol: nodes=119, edges=179, label=1
+[ok] datasets/reentrancy/dependency/0x0e54b1b8ff833b5f2b0d17453d97d340cb7576e4.sol: nodes=31, edges=24, label=1
+[ok] datasets/reentrancy/dependency/0x0e6457a564fd6780b5a8512707a46c43f3a49ffc.sol: nodes=19, edges=27, label=1
+[ok] datasets/reentrancy/dependency/0x0e69d0a2bbb30abcb7e5cfea0e4fde19c00a8d47.sol: nodes=68, edges=75, label=1
+[ok] datasets/reentrancy/dependency/0x0e6e19549a89c9bec84b5b632cd1674f8e066d06.sol: nodes=80, edges=121, label=1
+[ok] datasets/reentrancy/dependency/0x0e6f6ed4581d25944d8c6a595b9f50e11431b754.sol: nodes=142, edges=229, label=1
+[ok] datasets/reentrancy/dependency/0x0e752b742f744fdc2d93774da44c37b72c3e6952.sol: nodes=75, edges=127, label=1
+[ok] datasets/reentrancy/dependency/0x0e8175729e02db48ca0e2ca80efb72fe84a7dedd.sol: nodes=31, edges=39, label=1
+[ok] datasets/reentrancy/dependency/0x0ece93150cd501a5181d0ad03f87b177b1db4e0a.sol: nodes=131, edges=277, label=1
+[ok] datasets/reentrancy/dependency/0x0ee14f47320604d894fffffc8639772382937bee.sol: nodes=46, edges=58, label=1
+[ok] datasets/reentrancy/dependency/0x0ee1fa262e2deb4a8ac8124d414f5337c28866e4.sol: nodes=26, edges=24, label=1
+[ok] datasets/reentrancy/dependency/0x0f00f1696218eaefa2d2330df3d6d1f94813b38f.sol: nodes=74, edges=117, label=1
+[ok] datasets/reentrancy/dependency/0x0f067ddb0795a7627c18a5792ed0a2199de3a8c2.sol: nodes=90, edges=131, label=1
+[ok] datasets/reentrancy/dependency/0x0f1c64c1259e28b564662ba41e994d67cb7b1519.sol: nodes=162, edges=212, label=1
+[ok] datasets/reentrancy/dependency/0x0f1da17b33df90c078fd2fb4b9011a64af3c67a6.sol: nodes=25, edges=38, label=1
+[ok] datasets/reentrancy/dependency/0x0f31b54b35ab54d65d001f4e037a97548461ea7c.sol: nodes=45, edges=69, label=1
+[ok] datasets/reentrancy/dependency/0x0f5d6ae470d3b93eb3347212d480bf9b3acfe4f9.sol: nodes=37, edges=33, label=1
+[ok] datasets/reentrancy/dependency/0x0f5ee401de162cd163b6ff46318eef2727dbb9fc.sol: nodes=27, edges=41, label=1
+[ok] datasets/reentrancy/dependency/0x174bb5d84b78e9e2248e7aa2c789aeba82f72f68.sol: nodes=57, edges=115, label=1
+[ok] datasets/reentrancy/dependency/0x1784e5aec9ad99445663dbca9462a618bfe545ac.sol: nodes=19, edges=27, label=1
+[ok] datasets/reentrancy/dependency/0x17a03553719001e05dc19a20f5e82ee76923a985.sol: nodes=60, edges=50, label=1
+[ok] datasets/reentrancy/dependency/0x17b031b3802789a458955b3d27c60a0379f187b4.sol: nodes=38, edges=61, label=1
+[ok] datasets/reentrancy/dependency/0x1d86a854da490ff74dedc7abe281fb468f8c19ee.sol: nodes=35, edges=79, label=1
+[ok] datasets/reentrancy/dependency/0x1d899280f446aab65971e41611b5bb5516dd47f9.sol: nodes=84, edges=225, label=1
+[ok] datasets/reentrancy/dependency/0x1d8cd6eab10ab7d673fa7b4c5f93fe167953d4f9.sol: nodes=26, edges=29, label=1
+[ok] datasets/reentrancy/dependency/0x1db10d198c2d66a8767e7adde7fa5e5bf2d57604.sol: nodes=78, edges=104, label=1
+[ok] datasets/reentrancy/dependency/0x1dd6363c7f7a3150fb7ab13c29fe92f5bab23457.sol: nodes=45, edges=50, label=1
+[ok] datasets/reentrancy/dependency/0x1eafd303c88b6cd638c77b40596de3dcf001b249.sol: nodes=175, edges=225, label=1
+[ok] datasets/reentrancy/dependency/0x1eb0d4794d4067ed004c9d55ff6eb50620b27c58.sol: nodes=64, edges=75, label=1
+[ok] datasets/reentrancy/dependency/0x26788f0670bdf9594ba1a677a977e97eb68568db.sol: nodes=74, edges=222, label=1
+[ok] datasets/reentrancy/dependency/0x2682e3ad5358932ac5cd8f8616912cec76ad680c.sol: nodes=19, edges=27, label=1
+[ok] datasets/reentrancy/dependency/0x269b4c23ddab676e2869ae72cd6ae4f24bdfea45.sol: nodes=80, edges=138, label=1
+[ok] datasets/reentrancy/dependency/0x2775f2a3c83bee1541d1d1bc308b3bb432b45151.sol: nodes=37, edges=33, label=1
+[ok] datasets/reentrancy/dependency/0x28be79bd9ac609876b03f692d8d85278d8cbc2f3.sol: nodes=49, edges=71, label=1
+[ok] datasets/reentrancy/dependency/0x28f1135e43e61ebf303c8f1f9beef4f6a00dcb34.sol: nodes=65, edges=128, label=1
+[ok] datasets/reentrancy/dependency/0x291de53a16b76dfe28551fd3335225f506db8b82.sol: nodes=69, edges=113, label=1
+[ok] datasets/reentrancy/dependency/0x292d448b46f5419387e3886e89680ed4b7d62d09.sol: nodes=12, edges=14, label=1
+[ok] datasets/reentrancy/dependency/0x29632c10d76bd1aed6b1524bf5bde4c992610670.sol: nodes=305, edges=146, label=1
+[ok] datasets/reentrancy/dependency/0x296b13cdf513436ca34889f79d516018884374c1.sol: nodes=57, edges=80, label=1
+[ok] datasets/reentrancy/dependency/0x296ec7b2b224ea122f8f8f9be2a824df092fc82c.sol: nodes=58, edges=99, label=1
+[ok] datasets/reentrancy/dependency/0x29880855d419c6fa0e8c7fdfd985c80f286d914e.sol: nodes=61, edges=97, label=1
+[ok] datasets/reentrancy/dependency/0x29d79f8ac7d22a4b1a5e7630f3d48e8d291d3f11.sol: nodes=37, edges=33, label=1
+[ok] datasets/reentrancy/dependency/0x2d3e7d4870a51b918919e7b851fe19983e4c38d5.sol: nodes=125, edges=199, label=1
+[ok] datasets/reentrancy/dependency/0x2d820ea3a6b9302c500feeb7f6361ba1ddfa5aba.sol: nodes=111, edges=162, label=1
+[ok] datasets/reentrancy/dependency/0x2e485b285d84f09dc4663c8490aafbedce913b10.sol: nodes=47, edges=56, label=1
+[ok] datasets/reentrancy/dependency/0x2e59c87e9349242063793761780550374a3146cf.sol: nodes=37, edges=33, label=1
+[ok] datasets/reentrancy/dependency/0x2f5c4a85d7e133c4fefa5a0c0ba1447a1af86996.sol: nodes=14, edges=13, label=1
+[ok] datasets/reentrancy/dependency/0x300a0a820d8fb6e77850da5eaa8df64bbff5746d.sol: nodes=108, edges=240, label=1
+[ok] datasets/reentrancy/dependency/0x301487766dcf283592b11b5988e5c4e4630dfbe5.sol: nodes=56, edges=72, label=1
+[ok] datasets/reentrancy/dependency/0x302eb72befc8af539432ec32c39423525412748f.sol: nodes=37, edges=33, label=1
+[ok] datasets/reentrancy/dependency/0x33e85f62383aa7601d6ca117fe35b9b397ffe056.sol: nodes=37, edges=33, label=1
+[ok] datasets/reentrancy/dependency/0x3400696045f706f3309927cb8fdf63f07b616c6f.sol: nodes=54, edges=72, label=1
+[ok] datasets/reentrancy/dependency/0x34094acd5d62f0b9a17aeabf3c6992677ed5484b.sol: nodes=27, edges=41, label=1
+[ok] datasets/reentrancy/dependency/0x340b84a70520f721fde96c7ad663383c31e416cb.sol: nodes=151, edges=198, label=1
+[ok] datasets/reentrancy/dependency/0x341f9c6c60c07fd11ef0bbc93586a2b9d68bfcf0.sol: nodes=77, edges=106, label=1
+[ok] datasets/reentrancy/dependency/0x3420894bf786866a09937b0369d5b4781870c21f.sol: nodes=80, edges=145, label=1
+[ok] datasets/reentrancy/dependency/0x3478c2e4ed6f64db0be9c483b87f70ff6ab0d65a.sol: nodes=46, edges=32, label=1
+[ok] datasets/reentrancy/dependency/0x359a46571d4bc22a6a9310038b51e2d91163412f.sol: nodes=120, edges=141, label=1
+[ok] datasets/reentrancy/dependency/0x35a1700ac75f6e9e096d9a5c90e3221b658096e0.sol: nodes=17, edges=18, label=1
+[ok] datasets/reentrancy/dependency/0x35c2307cd831741187d4ef71ce9fbe91fa822df5.sol: nodes=44, edges=73, label=1
+[ok] datasets/reentrancy/dependency/0x35d672846d18e8a8ca6e036cb85828d38c9d7fa0.sol: nodes=23, edges=20, label=1
+[ok] datasets/reentrancy/dependency/0x35fd00d47202b1b2158dba75e7cc8f71b068c256.sol: nodes=110, edges=221, label=1
+[ok] datasets/reentrancy/dependency/0x3639d5dc956e35540fbd1de691870fb1318d6783.sol: nodes=23, edges=42, label=1
+[ok] datasets/reentrancy/dependency/0x3672a1d8a362c9a50db70df219e05ea3cab60df9.sol: nodes=37, edges=33, label=1
+[ok] datasets/reentrancy/dependency/0x36cddd1281258e4373ad313a995272f525cc4e63.sol: nodes=38, edges=59, label=1
+[ok] datasets/reentrancy/dependency/0x36db70e49ec65c2b14032078fcd1687c9cd21e03.sol: nodes=74, edges=73, label=1
+[ok] datasets/reentrancy/dependency/0x370f0fe5f1c03892b2dc950a89c6eaff4980dac3.sol: nodes=31, edges=56, label=1
+[ok] datasets/reentrancy/dependency/0x377dfa7bab23a798ca1fa0923bcd4d4ef2184d85.sol: nodes=138, edges=257, label=1
+[ok] datasets/reentrancy/dependency/0x37d6e7f287200c740012747d2a79295caed2db35.sol: nodes=50, edges=62, label=1
+[ok] datasets/reentrancy/dependency/0x37e343f2cc245754595f1ae3656b460c35d636fb.sol: nodes=42, edges=75, label=1
+[ok] datasets/reentrancy/dependency/0x383ece94bfdbdefe651aa2cba51e7fca2773b788.sol: nodes=66, edges=124, label=1
+[ok] datasets/reentrancy/dependency/0x39de38ba63d172b962db2fc2ee5e4376287c50bf.sol: nodes=89, edges=126, label=1
+[ok] datasets/reentrancy/dependency/0x39e8082b00c9f19ebf553e40feb7cf8459acc693.sol: nodes=76, edges=99, label=1
+[ok] datasets/reentrancy/dependency/0x39f89421c5bf8bb0d855c0216b00b45e3733b515.sol: nodes=89, edges=158, label=1
+[ok] datasets/reentrancy/dependency/0x39f996a2cafca0e593d0c46b8365d3936b6cc1cf.sol: nodes=52, edges=116, label=1
+[ok] datasets/reentrancy/dependency/0x39ffccecc551f35f8dfcb52c8c01060919aed1ea.sol: nodes=82, edges=292, label=1
+[ok] datasets/reentrancy/dependency/0x3a266f97425cd281c1770b71662fcf4415c29190.sol: nodes=55, edges=71, label=1
+[ok] datasets/reentrancy/dependency/0x3a2fd07ec2ad6f355f93af695a7cf858f5967b78.sol: nodes=32, edges=45, label=1
+[ok] datasets/reentrancy/dependency/0x3a37dcda0503f92626c082540dfbc9d95104ab96.sol: nodes=101, edges=132, label=1
+[ok] datasets/reentrancy/dependency/0x3a630495c7611b4da41bf133554374caa3963b75.sol: nodes=74, edges=103, label=1
+[ok] datasets/reentrancy/dependency/0x3a715f7ee68d8d7b105f9cabd972f76cb8ea0710.sol: nodes=19, edges=26, label=1
+[ok] datasets/reentrancy/dependency/0x3a773baa30d09f04da0bd869b142ea5503a31022.sol: nodes=33, edges=36, label=1
+[ok] datasets/reentrancy/dependency/0x3a966ffa8451cbf3769b7d1f94d5b47da254edb0.sol: nodes=77, edges=181, label=1
+[ok] datasets/reentrancy/dependency/0x3a9c0090e0d8d26f5eb83cacbc6361c2d305a500.sol: nodes=86, edges=150, label=1
+[ok] datasets/reentrancy/dependency/0x3aa927a97594c3ab7d7bf0d47c71c3877d1de4a1.sol: nodes=115, edges=149, label=1
+[ok] datasets/reentrancy/dependency/0x3ac86159fad58c90aaea1c61974d69d4f8ce8e77.sol: nodes=138, edges=291, label=1
+[ok] datasets/reentrancy/dependency/0x3ad4fad3ce0509475e5b4f597c53cba38873cc46.sol: nodes=22, edges=22, label=1
+[ok] datasets/reentrancy/dependency/0x3fbe0c07b2e5edc9aaa88017c924d1aeff6a719b.sol: nodes=48, edges=127, label=1
+[ok] datasets/reentrancy/dependency/0x3fd2371b53f2db38765220c90f2ffd4ddbe8afd1.sol: nodes=20, edges=24, label=1
+[ok] datasets/reentrancy/dependency/0x3fd30f3e1fbf4f3ea6bdf3e3bb11826266708869.sol: nodes=83, edges=99, label=1
+[ok] datasets/reentrancy/dependency/0x3fd7332ea471e876327926b30bd945773c706133.sol: nodes=43, edges=95, label=1
+[ok] datasets/reentrancy/dependency/0x3fde21c4118a7ac77e113920f76f68edd4fc144d.sol: nodes=36, edges=55, label=1
+[ok] datasets/reentrancy/dependency/0x3fe1bd3f808682e10cc16ccfc0e9476555ed93a7.sol: nodes=43, edges=68, label=1
+[ok] datasets/reentrancy/dependency/0x400784d4d1fe603b2e7a96416fa9a1afadf47009.sol: nodes=105, edges=157, label=1
+[ok] datasets/reentrancy/dependency/0x400e115f1be2b646139c298272a43b2cff2b127e.sol: nodes=10, edges=15, label=1
+[ok] datasets/reentrancy/dependency/0x4026f73f99427c6b70c9b101321895cee6b72659.sol: nodes=23, edges=27, label=1
+[ok] datasets/reentrancy/dependency/0x402fa04ccd2c2568e1a53dbecec1bd572303663a.sol: nodes=76, edges=130, label=1
+[ok] datasets/reentrancy/dependency/0x403860568bcd726ec403f8a1ca67f374e842f16c.sol: nodes=110, edges=141, label=1
+[ok] datasets/reentrancy/dependency/0x40685e86d1f5923352cb4d22ebe80294673044ce.sol: nodes=44, edges=60, label=1
+[ok] datasets/reentrancy/dependency/0x407b419144822e236d960e87e3c58c64feb715b8.sol: nodes=106, edges=142, label=1
+[ok] datasets/reentrancy/dependency/0x40818f0d14325a9eba6b2a7d60bd61cb9e27ef0c.sol: nodes=15, edges=9, label=1
+[ok] datasets/reentrancy/dependency/0x40da24a66f729d0bd0453681c5a6506bdc2a7a6a.sol: nodes=82, edges=160, label=1
+[ok] datasets/reentrancy/dependency/0x4145492ad5039b802bd7e58098c8d71706a2cd14.sol: nodes=81, edges=120, label=1
+[ok] datasets/reentrancy/dependency/0x4160836bd96bf4f2ed931bfefb3e00b3e68ad8f6.sol: nodes=37, edges=33, label=1
+[ok] datasets/reentrancy/dependency/0x416e18790790edb098cb17a7d490caa1262f5772.sol: nodes=37, edges=43, label=1
+[ok] datasets/reentrancy/dependency/0x4176f0f2b7c95486a5ae06e3d1b29201a42e7630.sol: nodes=30, edges=37, label=1
+[ok] datasets/reentrancy/dependency/0x417d6feeae8b2fcb73d14d64be7f192e49431978.sol: nodes=54, edges=77, label=1
+[ok] datasets/reentrancy/dependency/0x418d25d31c0a3c5559d8aa0c1c17d9cb3af9f59e.sol: nodes=22, edges=27, label=1
+[ok] datasets/reentrancy/dependency/0x419b8ed155180a8c9c64145e76dad49c0a4efb97.sol: nodes=46, edges=59, label=1
+[ok] datasets/reentrancy/dependency/0x41b8578b7fe2bdcc4cb5c8e6ab18b11880072208.sol: nodes=26, edges=41, label=1
+[ok] datasets/reentrancy/dependency/0x41c4413c7a2dcaa95b5e3441d8401f13e24d337c.sol: nodes=114, edges=166, label=1
+[ok] datasets/reentrancy/dependency/0x41d6d16524b0fa908324230946bdf44dd68a61ed.sol: nodes=23, edges=34, label=1
+[ok] datasets/reentrancy/dependency/0x422431dd7926165b83fbe433669c408843df23ee.sol: nodes=15, edges=22, label=1
+[ok] datasets/reentrancy/dependency/0x430e87a95a421437ccaa0af644ac57e22914b07a.sol: nodes=58, edges=106, label=1
+[ok] datasets/reentrancy/dependency/0x447b4ccab1b370afbe5ae2e68c0b700be913a585.sol: nodes=147, edges=328, label=1
+[ok] datasets/reentrancy/dependency/0x4498f897505d0e6991edeab24bc7b5727d72de28.sol: nodes=19, edges=29, label=1
+[ok] datasets/reentrancy/dependency/0x449c640b6c7fce4f8ad2e3dcd900d13be40174af.sol: nodes=27, edges=38, label=1
+[ok] datasets/reentrancy/dependency/0x449f5c827cf7726cc5f181090aa147ca5fb88a40.sol: nodes=56, edges=81, label=1
+[ok] datasets/reentrancy/dependency/0x44f958d420f0543353a5e4f14e827d73f01b4261.sol: nodes=44, edges=73, label=1
+[ok] datasets/reentrancy/dependency/0x456c4350eefd17315713b265d8be8b6063a5fab8.sol: nodes=66, edges=101, label=1
+[ok] datasets/reentrancy/dependency/0x45afe0ff6a92bc9f346fc440a9d2a881d42094ff.sol: nodes=50, edges=64, label=1
+[ok] datasets/reentrancy/dependency/0x45ba41dcfa69ea1cc9b7c01ddc16f21e31036e79.sol: nodes=45, edges=47, label=1
+[ok] datasets/reentrancy/dependency/0x45d147c800d401350b24fc1cd5fbc98040b177c8.sol: nodes=36, edges=38, label=1
+[ok] datasets/reentrancy/dependency/0x45e42d659d9f9466cd5df622506033145a9b89bc.sol: nodes=15, edges=19, label=1
+[ok] datasets/reentrancy/dependency/0x46822ac3bc32db7ebd9845da3fe0886f824e9edf.sol: nodes=82, edges=138, label=1
+[ok] datasets/reentrancy/dependency/0x46c9f93c3249c430c6ca19f02240ef9e038ba9d1.sol: nodes=27, edges=33, label=1
+[ok] datasets/reentrancy/dependency/0x4802fe0bf7eb3b3b0dce3ede89c575341f10e3e0.sol: nodes=34, edges=59, label=1
+[ok] datasets/reentrancy/dependency/0x4803ead7b2996353373e82f501e1a23a2f892d19.sol: nodes=31, edges=28, label=1
+[ok] datasets/reentrancy/dependency/0x4853cb0e07ab16cb380f8aeda24507779881cdeb.sol: nodes=18, edges=24, label=1
+[ok] datasets/reentrancy/dependency/0x485b224c97ad56dc5b145eafdee71a7b5163f735.sol: nodes=33, edges=59, label=1
+[ok] datasets/reentrancy/dependency/0x486681bb877703e4385c8fe9688bff776cbc11c4.sol: nodes=79, edges=118, label=1
+[ok] datasets/reentrancy/dependency/0x486cf19a550e2814aef970b14e509e93209a0151.sol: nodes=74, edges=118, label=1
+[ok] datasets/reentrancy/dependency/0x48ec79ffdd733e72046533baafcc19864a976da0.sol: nodes=62, edges=205, label=1
+[ok] datasets/reentrancy/dependency/0x4900320fe47208de0b79db1273a78ab8c8f3528d.sol: nodes=30, edges=55, label=1
+[ok] datasets/reentrancy/dependency/0x4b958074cee6546e29cdb3c43494e7425b85f59c.sol: nodes=77, edges=108, label=1
+[ok] datasets/reentrancy/dependency/0x4b96bf1fef93a216914fc843d81207a027ce52b3.sol: nodes=84, edges=106, label=1
+[ok] datasets/reentrancy/dependency/0xf4c1d8863820b5e66fee5ea5d247f597f73f91f6.sol: nodes=20, edges=28, label=1
+[ok] datasets/reentrancy/dependency/0xf5004f3cfdffa92d8b6012038506af9180a653ba.sol: nodes=21, edges=30, label=1
+[ok] datasets/reentrancy/dependency/0xf502275121deeaddbd7807bdbf533f48747ac17b.sol: nodes=21, edges=15, label=1
+[ok] datasets/reentrancy/dependency/0xf5068761511594c82328102f4fde4650ed9ea6c4.sol: nodes=31, edges=38, label=1
+[ok] datasets/reentrancy/dependency/0xf5096917729885ef5b1a8c4ef238d3cf06028ee7.sol: nodes=82, edges=107, label=1
+[ok] datasets/reentrancy/dependency/0xf50d193eb6761fb3189be46b9165d4aec20e05f0.sol: nodes=20, edges=34, label=1
+[ok] datasets/reentrancy/dependency/0xf50f369cc5f3b57f2786a4efb12359cc7dd640ae.sol: nodes=33, edges=29, label=1
+[ok] datasets/reentrancy/dependency/0xf515c78ea440443021fd2abdccbf01afcaae3e65.sol: nodes=66, edges=116, label=1
+[ok] datasets/reentrancy/dependency/0xf528d0e1e11edee40ca3724bd9fd923bb0235cc3.sol: nodes=52, edges=65, label=1
+[ok] datasets/reentrancy/dependency/0xf556eb074274b572a9e863c29840507affc9eba2.sol: nodes=36, edges=58, label=1
+[ok] datasets/reentrancy/dependency/0xf5580e174b658695680db92e6503949f6c52b454.sol: nodes=20, edges=30, label=1
+[ok] datasets/reentrancy/dependency/0xf5587929c51017cfa8d0ead672fcc6b39f1496b0.sol: nodes=53, edges=85, label=1
+[ok] datasets/reentrancy/dependency/0xf64196754b5548eef6bfcc434465c0d218309914.sol: nodes=21, edges=16, label=1
+[ok] datasets/reentrancy/dependency/0xf67451dc8421f0e0afeb52faa8101034ed081ed9.sol: nodes=28, edges=25, label=1
+[ok] datasets/reentrancy/undependency/0x46cefba4dd7512b2449e1ac4b730bfb7f77d1407.sol: nodes=24, edges=32, label=0
+[ok] datasets/reentrancy/undependency/0x46d1ebf7bb93044e078e0496e4661ec772607d9d.sol: nodes=82, edges=139, label=0
+[ok] datasets/reentrancy/undependency/0x470142a1834438515b757118f322703aba6e1e05.sol: nodes=57, edges=120, label=0
+[ok] datasets/reentrancy/undependency/0x4720f2468eeb7a795945c5ffbc3b0178e32250e0.sol: nodes=55, edges=67, label=0
+[ok] datasets/reentrancy/undependency/0x475a8101fdde7f7246e31be77dd7dcb80f25d735.sol: nodes=30, edges=52, label=0
+[ok] datasets/reentrancy/undependency/0x479cbe1f6a7fa4d7e304ae983803c46e85ced870.sol: nodes=59, edges=119, label=0
+[ok] datasets/reentrancy/undependency/0x47d4cc3d331525976553baff7c9e4d410087804a.sol: nodes=12, edges=16, label=0
+[ok] datasets/reentrancy/undependency/0x47fb9b34d4eca0ca1d25cafcb4924d8fc94e8170.sol: nodes=42, edges=72, label=0
+[ok] datasets/reentrancy/undependency/0xf354b2e5ea679a726d0348a974971cb4697bf508.sol: nodes=15, edges=21, label=0
+[ok] datasets/reentrancy/undependency/0xf355164187e533b1969b4de46737c4e8bc9ae7e2.sol: nodes=15, edges=25, label=0
+[ok] datasets/reentrancy/undependency/0xf3620846825ba198be14cdbc5f2b41bbff788d67.sol: nodes=44, edges=73, label=0
+[ok] datasets/reentrancy/undependency/0xf363abeedd0402de170a6f2bceb920db37f8b8cb.sol: nodes=33, edges=29, label=0
+[ok] datasets/reentrancy/undependency/0xf36d9bb4e6b60ff069e5e18caeb1071f10d4cb66.sol: nodes=36, edges=36, label=0
+[ok] datasets/reentrancy/undependency/0xf37454790e35b9c5adf6b0c33304156688a6a306.sol: nodes=61, edges=89, label=0
+[ok] datasets/reentrancy/undependency/0xf375e839fecff22f847eb2df66d440aeb7226916.sol: nodes=30, edges=29, label=0
+[ok] datasets/reentrancy/undependency/0xf37c4a962e70d813a4d9825942141cd9bc5169fd.sol: nodes=69, edges=119, label=0
+[ok] datasets/reentrancy/undependency/0xf3837fa9e62691a4eec8fd7d65ef8678d92eecf0.sol: nodes=16, edges=26, label=0
+[ok] datasets/reentrancy/undependency/0xf397560c2f726718810f8e8d2c56858c473cc484.sol: nodes=57, edges=24, label=0
+[ok] datasets/reentrancy/undependency/0xf39e32606f59e5dbbeebe81eb8251f1c380fb5f4.sol: nodes=24, edges=23, label=0
+[ok] datasets/reentrancy/undependency/0xf3a4d8e3f5bfbab3b2d42e46d23c461eb866d16e.sol: nodes=95, edges=141, label=0
+[ok] datasets/reentrancy/undependency/0xf3a88200de35c6f935562e66844707999b77dd38.sol: nodes=30, edges=30, label=0
+[ok] datasets/reentrancy/undependency/0xf3b1110c90fe991310a26742ec6c9ceebbc6bdd6.sol: nodes=27, edges=45, label=0
+[ok] datasets/reentrancy/undependency/0xf3b5cf34cdc3a0850037e5f383357fb808026bc7.sol: nodes=3, edges=1, label=0
+[ok] datasets/reentrancy/undependency/0xf3bfe4b73faa6393f84f59354ebd71b1c4db53fc.sol: nodes=20, edges=37, label=0
+[ok] datasets/reentrancy/undependency/0xf3c8ed6c721774c022c530e813a369dfe78a6e85.sol: nodes=73, edges=136, label=0
+[ok] datasets/reentrancy/undependency/0xf3c96e0153cdab274834a9ef9d4f6a330677d66d.sol: nodes=24, edges=23, label=0
+[ok] datasets/reentrancy/undependency/0xf3cb4203e10f205c6bc91d8b0974eee520af6412.sol: nodes=10, edges=11, label=0
+[ok] datasets/reentrancy/undependency/0xf3cfb35afdbffea20892488ba7f1574adda81b9d.sol: nodes=50, edges=121, label=0
+[ok] datasets/reentrancy/undependency/0xf3d86b6974ddf5b8407cfdcd3f874a76f7538b90.sol: nodes=147, edges=229, label=0
+[ok] datasets/reentrancy/undependency/0xf3dac8e171a13066f8964f74a7c87fd518e4e162.sol: nodes=10, edges=8, label=0
+[ok] datasets/reentrancy/undependency/0xf3dce610acbfbcbb4efc12c4c2e3be063128baad.sol: nodes=51, edges=100, label=0
+[ok] datasets/reentrancy/undependency/0xf3e3f649771651368d89dd6fefc57c77dceb6f78.sol: nodes=31, edges=36, label=0
+[ok] datasets/reentrancy/undependency/0xf3e61d4a877ef82d68ebc97acf99e1c08ee342f2.sol: nodes=70, edges=85, label=0
+[ok] datasets/reentrancy/undependency/0xf3e6264475f63d771ca562a5176fb9a9b79acd67.sol: nodes=33, edges=29, label=0
+[ok] datasets/reentrancy/undependency/0xf3e827ee018007603899170f0d4b80076dfa469e.sol: nodes=35, edges=44, label=0
+[ok] datasets/reentrancy/undependency/0xf3e9e677e82d989445ba7d6a564b616a3171bbfb.sol: nodes=19, edges=27, label=0
+[ok] datasets/reentrancy/undependency/0xf3eb09a1fd5a3e133a669074de1231d7a673744b.sol: nodes=92, edges=158, label=0
+[ok] datasets/reentrancy/undependency/0xf3eb8b0600739111e41c14be93fcff15f104e6e6.sol: nodes=15, edges=25, label=0
+[ok] datasets/reentrancy/undependency/0xf3f3dd2b5d9f3de1b1ceb6ad84683bf31adf29d1.sol: nodes=13, edges=16, label=0
+[ok] datasets/reentrancy/undependency/0xf3fb69ef211c6d1e838a5c2223ef54fed4f24090.sol: nodes=51, edges=82, label=0
+[ok] datasets/reentrancy/undependency/0xf40b7341cb564b506af7cd3788331b55621aabab.sol: nodes=10, edges=12, label=0
+[ok] datasets/reentrancy/undependency/0xf40c5e190a608b6f8c0bf2b38c9506b327941402.sol: nodes=57, edges=76, label=0
+[ok] datasets/reentrancy/undependency/0xf40eb2f57db872e57b86ba36d4bc86a38a16e4d5.sol: nodes=12, edges=15, label=0
+[ok] datasets/reentrancy/undependency/0xf412af62269a0b3b10ea727df81231cdc5bb6364.sol: nodes=33, edges=29, label=0
+[ok] datasets/reentrancy/undependency/0xf41624c6465e57a0dca498ef0b62f07cbaab09ca.sol: nodes=32, edges=29, label=0
+[ok] datasets/reentrancy/undependency/0xf438e3a0c1bb9dc0ef6da672c97a282236d3f233.sol: nodes=33, edges=29, label=0
+[ok] datasets/reentrancy/undependency/0xf441b73b0a196aa67d32aee230aab5e54eef4765.sol: nodes=54, edges=70, label=0
+[ok] datasets/reentrancy/undependency/0xf442c2f7f9f91bd482fac07ed599ece40ffcc283.sol: nodes=15, edges=21, label=0
+[ok] datasets/reentrancy/undependency/0xf443aaaf1e0770a078b5e1b783e68eb71c9e2f0f.sol: nodes=159, edges=259, label=0
+[ok] datasets/reentrancy/undependency/0xf449ef0007c98761bdfced7ab1d0351f71d30468.sol: nodes=9, edges=5, label=0
+[ok] datasets/reentrancy/undependency/0xf45546fcb8c604703a0c5f1a652f01ce452ec511.sol: nodes=28, edges=43, label=0
+[ok] datasets/reentrancy/undependency/0xf459034afc1fc2e0e8bddc8e3645c2b2935186f6.sol: nodes=61, edges=107, label=0
+[ok] datasets/reentrancy/undependency/0xf45a3bbe486779250961c9f2da73651deb90406a.sol: nodes=15, edges=17, label=0
+[ok] datasets/reentrancy/undependency/0xf45c4e30e9a4d8107d7dbd0556065baedf03838d.sol: nodes=20, edges=16, label=0
+[ok] datasets/reentrancy/undependency/0xf45ddbb8c22b92186e6107c8ad5e323686355797.sol: nodes=33, edges=29, label=0
+[ok] datasets/reentrancy/undependency/0xf45ee2519203fe8b77c1f05de75cf5f405bf9011.sol: nodes=16, edges=25, label=0
+[ok] datasets/reentrancy/undependency/0xf46002c37af6fb078ae1833fd447698a0c9012f7.sol: nodes=43, edges=16, label=0
+[ok] datasets/reentrancy/undependency/0xf4609d26a58598d6b80b11f451a00477f61d8804.sol: nodes=15, edges=25, label=0
+[ok] datasets/reentrancy/undependency/0xf46dbdd823ff23efe1cd21f71f030c2e48c97fe9.sol: nodes=192, edges=336, label=0
+[ok] datasets/reentrancy/undependency/0xf46ec74202f414a8c05f9db7ff60869eb750d1c9.sol: nodes=10, edges=9, label=0
+[ok] datasets/reentrancy/undependency/0xf46f049967ed63b864a7f6cdf91d6dac9ea23b2c.sol: nodes=14, edges=20, label=0
+[ok] datasets/reentrancy/undependency/0xf4702b0918a8a89dfc38459ce42198834818f26b.sol: nodes=40, edges=77, label=0
+[ok] datasets/reentrancy/undependency/0xf47186b5a4a57121f4eace51f50d47a7c0cd8740.sol: nodes=56, edges=60, label=0
+[ok] datasets/reentrancy/undependency/0xf47cd932ee150f60cd611c3cfdba51bd33b27ad1.sol: nodes=13, edges=23, label=0
+[ok] datasets/reentrancy/undependency/0xf47f923b91422f47645f41425601c44f6b464300.sol: nodes=53, edges=87, label=0
+[ok] datasets/reentrancy/undependency/0xf485c5e679238f9304d986bb2fc28fe3379200e5.sol: nodes=49, edges=89, label=0
+[ok] datasets/reentrancy/undependency/0xf4896e3273d8cfed47896c596f42efd08eea390f.sol: nodes=46, edges=61, label=0
+[ok] datasets/reentrancy/undependency/0xf48d72e5a2419c0c6f5822854b7bb7bf135d1623.sol: nodes=14, edges=20, label=0
+[ok] datasets/reentrancy/undependency/0xf4985070ce32b6b1994329df787d1acc9a2dd9e2.sol: nodes=38, edges=51, label=0
+[ok] datasets/reentrancy/undependency/0xf4991089fdc65a9e23771adef47544742a0096c4.sol: nodes=15, edges=24, label=0
+[ok] datasets/reentrancy/undependency/0xf49cdd50ad408d387d611f88a647179c3de3492b.sol: nodes=21, edges=31, label=0
+[ok] datasets/reentrancy/undependency/0xf4a3679eb0a3d9e8af9824a29bd32dd98d1e7127.sol: nodes=311, edges=658, label=0
+[ok] datasets/reentrancy/undependency/0xf4a7c09a885a31755dd4cd1ce816d257fbe30dcf.sol: nodes=19, edges=29, label=0
+[ok] datasets/reentrancy/undependency/0xf4a8f388a38d23d795bdf478e5d285561be31432.sol: nodes=25, edges=31, label=0
+[ok] datasets/reentrancy/undependency/0xf4ac238121585456dee1096fed287f4d8906d519.sol: nodes=24, edges=33, label=0
+[ok] datasets/reentrancy/undependency/0xf4ac7eccd66a282920c131f96e716e3457120e03.sol: nodes=27, edges=35, label=0
+[ok] datasets/reentrancy/undependency/0xf4acd4f5b97648800f579a8acee52cd5f8571342.sol: nodes=11, edges=15, label=0
+[ok] datasets/reentrancy/undependency/0xf4ada683181837c150cd0c33881dd874230eb5ae.sol: nodes=19, edges=25, label=0
+[ok] datasets/reentrancy/undependency/0xf4b0e82bb4ceaa34e1e5e2da3ac6babc57682348.sol: nodes=21, edges=15, label=0
+[ok] datasets/reentrancy/undependency/0xf4b270c1590b799cc254326a98e3aba97261460e.sol: nodes=35, edges=74, label=0
+[ok] datasets/reentrancy/undependency/0xf4b9240ab85dbd01fcd698a072aed4413d97eed4.sol: nodes=33, edges=29, label=0
+[ok] datasets/reentrancy/undependency/0xf4b98e542c233d1473d300599af892f53e285ce1.sol: nodes=25, edges=31, label=0
+[ok] datasets/reentrancy/undependency/0xf4bc01f1de29385ad2d3cbc4d5cc7ab67d2091fc.sol: nodes=24, edges=23, label=0
+[ok] datasets/reentrancy/undependency/0xf4be3da9df0c12e69115bb5614334786fbaf5ace.sol: nodes=79, edges=105, label=0
+[ok] datasets/reentrancy/undependency/0xf4c3a48f27666ef8bedab8d73c0117e1aeaf1ba0.sol: nodes=21, edges=40, label=0
+[ok] datasets/reentrancy/undependency/0xf4c571fb6dd704e58561cdd275fa4b80cfe82f76.sol: nodes=33, edges=29, label=0
+[ok] datasets/reentrancy/undependency/0xf4c90e18727c5c76499ea6369c856a6d61d3e92e.sol: nodes=18, edges=16, label=0
+[ok] datasets/reentrancy/undependency/0xf4d9000456bc1e8922a18f3d58c1036aa1afbbc2.sol: nodes=62, edges=69, label=0
+[ok] datasets/reentrancy/undependency/0xf4d9f469297d7c6a8c3962aa04ab37d6cfa66ee7.sol: nodes=27, edges=34, label=0
+[ok] datasets/reentrancy/undependency/0xf4dc44f1c618a5e4b6f372347e033ac5e77971a5.sol: nodes=10, edges=9, label=0
+[ok] datasets/reentrancy/undependency/0xf4e3a095e2cad145793ec0f9fb5500e260514065.sol: nodes=10, edges=9, label=0
+[ok] datasets/reentrancy/undependency/0xf4e770dd0e82e636062c05863cb0d25902bff334.sol: nodes=31, edges=31, label=0
+[ok] datasets/reentrancy/undependency/0xf4f5271c9d6f23cc00f93625b502f88d289a1607.sol: nodes=60, edges=96, label=0
+[ok] datasets/reentrancy/undependency/0xf4f5e4c5d5dfd01a3604016bc861ac3654a0c2e2.sol: nodes=30, edges=48, label=0
+[ok] datasets/reentrancy/undependency/0xf4fb70638c4a83ffcec413a026b99a272b6f9933.sol: nodes=32, edges=31, label=0
+[ok] datasets/reentrancy/undependency/0xf4fbef849bcf02ac4b305c2bc092fc270a14124c.sol: nodes=43, edges=113, label=0
+[ok] datasets/reentrancy/undependency/0xfef5497bc53a69875e02ae5b14eeff668f09a729.sol: nodes=56, edges=166, label=0
+Generated 300/300 graphs. graph_info=graphs/reentrancy_graphs.jsonl, node_embeddings=graphs/reentrancy_node_embeddings.jsonl
