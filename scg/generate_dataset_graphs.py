@@ -54,8 +54,8 @@ def generate_graph_files(
 ) -> tuple[Path, Path]:
     """Generate graph JSONL files for a labeled Solidity dataset."""
 
-    dataset_dir = Path(dataset_dir)
-    output_dir = Path(output_dir)
+    dataset_dir = Path(dataset_dir).resolve()
+    output_dir = Path(output_dir).resolve()
     graph_info_path = output_dir / f"{dataset_type}_graphs.jsonl"
     node_embeddings_path = output_dir / f"{dataset_type}_node_embeddings.jsonl"
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -69,7 +69,7 @@ def generate_graph_files(
         node_embeddings_path.open("w", encoding="utf-8") as node_embeddings_file,
     ):
         for total_count, (sol_file, label) in enumerate(iter_labeled_solidity_files(dataset_dir), start=1):
-            file_path = sol_file.relative_to(PROJECT_ROOT).as_posix()
+            file_path = _portable_file_path(sol_file)
 
             try:
                 graph = sc_graph_generator(sol_file)
@@ -106,6 +106,16 @@ def generate_graph_files(
         print(f"Skipped {len(failures)} files due to errors.", file=sys.stderr)
 
     return graph_info_path, node_embeddings_path
+
+
+def _portable_file_path(path: Path) -> str:
+    """Return a stable project-relative path when possible."""
+
+    resolved_path = path.resolve()
+    try:
+        return resolved_path.relative_to(PROJECT_ROOT).as_posix()
+    except ValueError:
+        return resolved_path.as_posix()
 
 
 def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
