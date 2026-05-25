@@ -76,6 +76,12 @@ _PRAGMA_SOLIDITY_PATTERN = re.compile(r"pragma\s+solidity\s+([^;]+);")
 _SEMVER_PATTERN = re.compile(r"\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?")
 SOLC_SELECT_COMMAND = ("uv", "run", "solc-select")
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
+_LATEST_PATCH_BY_MINOR = {
+    (0, 4): "0.4.26",
+    (0, 5): "0.5.17",
+    (0, 6): "0.6.12",
+    (0, 7): "0.7.6",
+}
 
 
 @dataclass
@@ -292,15 +298,126 @@ def _resolve_sol_version(path: Path, sol_version: str | None) -> str:
 
 
 def _extract_sol_version_from_file(path: Path) -> str | None:
-    source = path.read_text(encoding="utf-8")
-    match = _PRAGMA_SOLIDITY_PATTERN.search(source)
-    if not match:
+    source = _strip_solidity_comments(path.read_text(encoding="utf-8", errors="ignore"))
+    pragma_specs = [match.group(1) for match in _PRAGMA_SOLIDITY_PATTERN.finditer(source)]
+    if not pragma_specs:
         return None
 
-    version_match = _SEMVER_PATTERN.search(match.group(1))
-    if not version_match:
+    versions = [
+        version
+        for spec in pragma_specs
+        for version in _SEMVER_PATTERN.findall(spec)
+    ]
+    if not versions:
         return None
-    return version_match.group(0)
+
+    exact_versions = [
+        exact_version
+        for spec in pragma_specs
+        if (exact_version := _exact_pragma_version(spec)) is not None
+    ]
+    if exact_versions:
+        return max(exact_versions, key=_version_key)
+
+    lower_bound_versions = [
+        version
+        for spec in pragma_specs
+        for version in _lower_bound_versions(spec)
+    ]
+    if not lower_bound_versions:
+        lower_bound_versions = versions
+
+    highest_lower_bound = max(lower_bound_versions, key=_version_key)
+    major, minor, _patch = _version_key(highest_lower_bound)
+    if _has_upper_bound_at_or_below(pragma_specs, "0.6.0") and (major, minor) < (0, 6):
+        return _LATEST_PATCH_BY_MINOR[(0, 5)]
+    if _has_upper_bound_at_or_below(pragma_specs, "0.7.0") and (major, minor) < (0, 7):
+        return _LATEST_PATCH_BY_MINOR[(0, 6)]
+    if (major, minor, _patch) == (0, 4, 99):
+        return _LATEST_PATCH_BY_MINOR[(0, 5)]
+    return _LATEST_PATCH_BY_MINOR.get((major, minor), highest_lower_bound)
+
+
+def _exact_pragma_version(spec: str) -> str | None:
+    stripped = spec.strip()
+    exact_match = re.match(r"^=?\s*(\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?)", stripped)
+    if not exact_match:
+        return None
+    if stripped.startswith("=") or re.fullmatch(r"\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?", stripped):
+        return exact_match.group(1)
+    return None
+
+
+def _lower_bound_versions(spec: str) -> list[str]:
+    lower_bounds: list[str] = []
+    for match in _SEMVER_PATTERN.finditer(spec):
+        prefix = spec[: match.start()].rstrip()
+        if prefix.endswith("<") or prefix.endswith("<="):
+            continue
+        lower_bounds.append(match.group(0))
+    return lower_bounds
+
+
+def _has_upper_bound_at_or_below(specs: list[str], version: str) -> bool:
+    target = _version_key(version)
+    for spec in specs:
+        for match in _SEMVER_PATTERN.finditer(spec):
+            prefix = spec[: match.start()].rstrip()
+            if (prefix.endswith("<") or prefix.endswith("<=")) and _version_key(match.group(0)) <= target:
+                return True
+    return False
+
+
+def _version_key(version: str) -> tuple[int, int, int]:
+    major, minor, patch = version.split(".", 2)
+    patch_match = re.match(r"\d+", patch)
+    return int(major), int(minor), int(patch_match.group(0) if patch_match else 0)
+
+
+def _strip_solidity_comments(source: str) -> str:
+    result: list[str] = []
+    index = 0
+    in_string: str | None = None
+
+    while index < len(source):
+        char = source[index]
+        next_char = source[index + 1] if index + 1 < len(source) else ""
+
+        if in_string:
+            result.append(char)
+            if char == "\\" and index + 1 < len(source):
+                result.append(source[index + 1])
+                index += 2
+                continue
+            if char == in_string:
+                in_string = None
+            index += 1
+            continue
+
+        if char in {'"', "'"}:
+            in_string = char
+            result.append(char)
+            index += 1
+            continue
+
+        if char == "/" and next_char == "/":
+            while index < len(source) and source[index] != "\n":
+                index += 1
+            result.append("\n")
+            continue
+
+        if char == "/" and next_char == "*":
+            index += 2
+            while index + 1 < len(source) and not (source[index] == "*" and source[index + 1] == "/"):
+                result.append("\n" if source[index] == "\n" else " ")
+                index += 1
+            index += 2
+            continue
+
+        result.append(char)
+        index += 1
+
+    return "".join(result)
 
 
 def _ensure_solc_version_installed(sol_version: str) -> None:
