@@ -53,8 +53,16 @@ Some dataset contracts were minimally patched so they can be compiled by Slither
 for graph generation. For each patched Solidity file, the original source is kept
 next to it with the `.sol.orig` suffix.
 
-| Patched file | Original backup | Reason |
-| --- | --- | --- |
-| `origin/undependency/0x1a3f7583c0af24ef78cdb1a1eb48d957df793824.sol` | `origin/undependency/0x1a3f7583c0af24ef78cdb1a1eb48d957df793824.sol.orig` | Extracted one Kyber call into a helper to avoid a Solidity 0.5.17 `Stack too deep` compiler error. |
-| `origin/undependency/0x6c8f2a135f6ed072de4503bd7c4999a1a17f824b.sol` | `origin/undependency/0x6c8f2a135f6ed072de4503bd7c4999a1a17f824b.sol.orig` | Fixed minimal Solidity 0.4.24 compatibility issues: missing modifier semicolons, trailing struct-literal commas, fallback return values, enum conversion, and payable constructor creation. |
-| `timestamp/dependency/0x1eee197a40ea98185535f0e7d93d09be6bfcd5cb.sol` | `timestamp/dependency/0x1eee197a40ea98185535f0e7d93d09be6bfcd5cb.sol.orig` | Added `pragma solidity 0.4.11;` so this old-style contract compiles with the matching compiler. |
+- `origin/undependency/0x1a3f7583c0af24ef78cdb1a1eb48d957df793824.sol`
+  - Original backup: `origin/undependency/0x1a3f7583c0af24ef78cdb1a1eb48d957df793824.sol.orig`
+  - Reason: extracted one Kyber call into a helper to avoid a Solidity 0.5.17
+    `Stack too deep` compiler error.
+- `origin/undependency/0x6c8f2a135f6ed072de4503bd7c4999a1a17f824b.sol`
+  - Original backup: `origin/undependency/0x6c8f2a135f6ed072de4503bd7c4999a1a17f824b.sol.orig`
+  - Reason: fixed minimal Solidity 0.4.24 compatibility issues: missing
+    modifier semicolons, trailing struct-literal commas, fallback return
+    values, enum conversion, and payable constructor creation.
+- `timestamp/dependency/0x1eee197a40ea98185535f0e7d93d09be6bfcd5cb.sol`
+  - Original backup: `timestamp/dependency/0x1eee197a40ea98185535f0e7d93d09be6bfcd5cb.sol.orig`
+  - Reason: added `pragma solidity 0.4.11;` so this old-style contract compiles
+    with the matching compiler.
