@@ -234,13 +234,21 @@ def _load_slither(sol_path: str | Path, sol_version: str | None) -> tuple[Path, 
     if not path.is_file():
         raise ValueError(f"Solidity path is not a file: {path}")
 
-    resolved_sol_version = _resolve_sol_version(path, sol_version)
-    _ensure_solc_version_installed(resolved_sol_version)
-    slither_kwargs: dict[str, Any] = {
-        "solc_disable_warnings": True,
-        "solc_solcs_select": resolved_sol_version,
-    }
-    return path, Slither(str(path), **slither_kwargs)
+    last_error: Exception | None = None
+    for resolved_sol_version in _resolve_sol_versions(path, sol_version):
+        try:
+            _ensure_solc_version_installed(resolved_sol_version)
+            slither_kwargs: dict[str, Any] = {
+                "solc_disable_warnings": True,
+                "solc_solcs_select": resolved_sol_version,
+            }
+            return path, Slither(str(path), **slither_kwargs)
+        except Exception as exc:
+            last_error = exc
+
+    if last_error is not None:
+        raise last_error
+    raise RuntimeError(f"No Solidity compiler version could be resolved for {path}")
 
 
 def _contract_callable_nodes(contract: Any) -> list[Function]:
@@ -292,16 +300,25 @@ def _callable_members(members: list[Function | StateVariable]) -> list[Function]
 
 
 def _resolve_sol_version(path: Path, sol_version: str | None) -> str:
+    return _resolve_sol_versions(path, sol_version)[0]
+
+
+def _resolve_sol_versions(path: Path, sol_version: str | None) -> list[str]:
     if sol_version:
-        return sol_version
-    return _extract_sol_version_from_file(path) or DEFAULT_SOL_VERSION
+        return [sol_version]
+    return _extract_sol_versions_from_file(path) or [DEFAULT_SOL_VERSION]
 
 
 def _extract_sol_version_from_file(path: Path) -> str | None:
+    versions = _extract_sol_versions_from_file(path)
+    return versions[0] if versions else None
+
+
+def _extract_sol_versions_from_file(path: Path) -> list[str]:
     source = _strip_solidity_comments(path.read_text(encoding="utf-8", errors="ignore"))
     pragma_specs = [match.group(1) for match in _PRAGMA_SOLIDITY_PATTERN.finditer(source)]
     if not pragma_specs:
-        return None
+        return []
 
     versions = [
         version
@@ -309,7 +326,7 @@ def _extract_sol_version_from_file(path: Path) -> str | None:
         for version in _SEMVER_PATTERN.findall(spec)
     ]
     if not versions:
-        return None
+        return []
 
     exact_versions = [
         exact_version
@@ -317,7 +334,27 @@ def _extract_sol_version_from_file(path: Path) -> str | None:
         if (exact_version := _exact_pragma_version(spec)) is not None
     ]
     if exact_versions:
-        return max(exact_versions, key=_version_key)
+        return [max(exact_versions, key=_version_key)]
+
+    caret_zero_versions = [
+        caret_zero_version
+        for spec in pragma_specs
+        if (caret_zero_version := _caret_zero_pragma_version(spec)) is not None
+    ]
+    if caret_zero_versions:
+        highest_caret_zero = max(caret_zero_versions, key=_version_key)
+        major, minor, _patch = _version_key(highest_caret_zero)
+        candidates = []
+        if fallback_version := _LATEST_PATCH_BY_MINOR.get((major, minor)):
+            candidates.append(fallback_version)
+        candidates.append(highest_caret_zero)
+        return _unique_versions(candidates)
+
+    if range_versions := _range_pragma_versions(pragma_specs):
+        return range_versions
+
+    if open_lower_bound_versions := _open_lower_bound_pragma_versions(pragma_specs):
+        return open_lower_bound_versions
 
     lower_bound_versions = [
         version
@@ -330,12 +367,25 @@ def _extract_sol_version_from_file(path: Path) -> str | None:
     highest_lower_bound = max(lower_bound_versions, key=_version_key)
     major, minor, _patch = _version_key(highest_lower_bound)
     if _has_upper_bound_at_or_below(pragma_specs, "0.6.0") and (major, minor) < (0, 6):
-        return _LATEST_PATCH_BY_MINOR[(0, 5)]
+        return _unique_versions([_LATEST_PATCH_BY_MINOR[(0, 5)], highest_lower_bound])
     if _has_upper_bound_at_or_below(pragma_specs, "0.7.0") and (major, minor) < (0, 7):
-        return _LATEST_PATCH_BY_MINOR[(0, 6)]
+        return _unique_versions([_LATEST_PATCH_BY_MINOR[(0, 6)], highest_lower_bound])
     if (major, minor, _patch) == (0, 4, 99):
-        return _LATEST_PATCH_BY_MINOR[(0, 5)]
-    return _LATEST_PATCH_BY_MINOR.get((major, minor), highest_lower_bound)
+        return _unique_versions([_LATEST_PATCH_BY_MINOR[(0, 5)], highest_lower_bound])
+    if open_upper_bound_versions := _open_upper_bound_pragma_versions(pragma_specs, highest_lower_bound):
+        return open_upper_bound_versions
+    return _unique_versions([_LATEST_PATCH_BY_MINOR.get((major, minor), highest_lower_bound), highest_lower_bound])
+
+
+def _unique_versions(versions: list[str]) -> list[str]:
+    unique_versions: list[str] = []
+    seen: set[str] = set()
+    for version in versions:
+        if version in seen:
+            continue
+        seen.add(version)
+        unique_versions.append(version)
+    return unique_versions
 
 
 def _exact_pragma_version(spec: str) -> str | None:
@@ -348,6 +398,99 @@ def _exact_pragma_version(spec: str) -> str | None:
     return None
 
 
+def _caret_zero_pragma_version(spec: str) -> str | None:
+    stripped = spec.strip()
+    caret_match = re.match(r"^\^\s*(0\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?)$", stripped)
+    if caret_match:
+        return caret_match.group(1)
+    return None
+
+
+def _range_pragma_versions(specs: list[str]) -> list[str]:
+    lower_bounds: list[str] = []
+    upper_bounds: list[str] = []
+
+    for spec in specs:
+        for match in _SEMVER_PATTERN.finditer(spec):
+            version = match.group(0)
+            prefix = spec[: match.start()].rstrip()
+            suffix = spec[match.end() :].lstrip()
+            if prefix.endswith(">") or prefix.endswith(">=") or suffix.startswith("<") or suffix.startswith("<="):
+                lower_bounds.append(version)
+            elif prefix.endswith("<") or prefix.endswith("<=") or suffix.startswith(">") or suffix.startswith(">="):
+                upper_bounds.append(version)
+
+    if not lower_bounds or not upper_bounds:
+        return []
+
+    min_version = max(lower_bounds, key=_version_key)
+    max_version = min(upper_bounds, key=_version_key)
+    if _version_key(min_version) > _version_key(max_version):
+        return []
+
+    candidates = [max_version]
+    min_major, min_minor, _min_patch = _version_key(min_version)
+    max_major, max_minor, _max_patch = _version_key(max_version)
+    for major, minor in sorted(_LATEST_PATCH_BY_MINOR, reverse=True):
+        if (major, minor) > (max_major, max_minor) or (major, minor) < (min_major, min_minor):
+            continue
+        latest_patch = _LATEST_PATCH_BY_MINOR[(major, minor)]
+        if _version_key(min_version) <= _version_key(latest_patch) <= _version_key(max_version):
+            candidates.append(latest_patch)
+    candidates.append(min_version)
+    return _unique_versions(candidates)
+
+
+def _open_lower_bound_pragma_versions(specs: list[str]) -> list[str]:
+    lower_bounds: list[str] = []
+
+    for spec in specs:
+        has_open_lower_bound = False
+        has_upper_bound = False
+        for match in _SEMVER_PATTERN.finditer(spec):
+            version = match.group(0)
+            prefix = spec[: match.start()].rstrip()
+            suffix = spec[match.end() :].lstrip()
+            if prefix.endswith(">") and not prefix.endswith(">="):
+                has_open_lower_bound = True
+                lower_bounds.append(version)
+            elif prefix.endswith("<") or prefix.endswith("<="):
+                has_upper_bound = True
+            elif suffix.startswith(">") or suffix.startswith(">="):
+                has_upper_bound = True
+
+        if has_open_lower_bound and has_upper_bound:
+            return []
+
+    if not lower_bounds:
+        return []
+
+    lower_bound = max(lower_bounds, key=_version_key)
+    return _open_upper_bound_pragma_versions(specs, lower_bound, include_lower_bound=False)
+
+
+def _open_upper_bound_pragma_versions(
+    specs: list[str],
+    lower_bound: str,
+    include_lower_bound: bool = True,
+) -> list[str]:
+    if any(_has_upper_bound(spec) for spec in specs):
+        return []
+
+    lower_bound_key = _version_key(lower_bound)
+    lower_major, lower_minor, _lower_patch = lower_bound_key
+    candidates = [
+        lower_bound,
+    ] if include_lower_bound else []
+    candidates.extend(
+        version
+        for minor, version in sorted(_LATEST_PATCH_BY_MINOR.items())
+        if (lower_major, lower_minor) <= minor <= (0, 7)
+        and _version_key(version) > lower_bound_key
+    )
+    return _unique_versions(candidates)
+
+
 def _lower_bound_versions(spec: str) -> list[str]:
     lower_bounds: list[str] = []
     for match in _SEMVER_PATTERN.finditer(spec):
@@ -356,6 +499,17 @@ def _lower_bound_versions(spec: str) -> list[str]:
             continue
         lower_bounds.append(match.group(0))
     return lower_bounds
+
+
+def _has_upper_bound(spec: str) -> bool:
+    for match in _SEMVER_PATTERN.finditer(spec):
+        prefix = spec[: match.start()].rstrip()
+        suffix = spec[match.end() :].lstrip()
+        if prefix.endswith("<") or prefix.endswith("<="):
+            return True
+        if suffix.startswith(">") or suffix.startswith(">="):
+            return True
+    return False
 
 
 def _has_upper_bound_at_or_below(specs: list[str], version: str) -> bool:

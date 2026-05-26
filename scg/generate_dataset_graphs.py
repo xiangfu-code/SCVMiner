@@ -60,7 +60,8 @@ def generate_graph_files(
     node_embeddings_path = output_dir / f"{dataset_type}_node_embeddings.jsonl"
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    total_count = 0
+    labeled_files = list(iter_labeled_solidity_files(dataset_dir))
+    total_count = len(labeled_files)
     success_count = 0
     failures: list[tuple[str, str]] = []
 
@@ -68,8 +69,9 @@ def generate_graph_files(
         graph_info_path.open("w", encoding="utf-8") as graph_info_file,
         node_embeddings_path.open("w", encoding="utf-8") as node_embeddings_file,
     ):
-        for total_count, (sol_file, label) in enumerate(iter_labeled_solidity_files(dataset_dir), start=1):
+        for cur_count, (sol_file, label) in enumerate(labeled_files, start=1):
             file_path = _portable_file_path(sol_file)
+            progress = f"[{cur_count}/{total_count}]"
 
             try:
                 graph = sc_graph_generator(sol_file)
@@ -77,7 +79,7 @@ def generate_graph_files(
                 if not continue_on_error:
                     raise
                 failures.append((file_path, str(exc)))
-                print(f"[failed] {file_path}: {exc}", file=sys.stderr)
+                print(f"{progress} [failed] {file_path}: {exc}", file=sys.stderr)
                 continue
 
             graph_record = {
@@ -95,7 +97,7 @@ def generate_graph_files(
             graph_info_file.write(json.dumps(graph_record, separators=(",", ":")) + "\n")
             node_embeddings_file.write(json.dumps(node_embeddings_record, separators=(",", ":")) + "\n")
             success_count += 1
-            print(f"[ok] {file_path}: nodes={graph.num_nodes}, edges={graph.num_edges}, label={label}")
+            print(f"{progress} [ok] {file_path}: nodes={graph.num_nodes}, edges={graph.num_edges}, label={label}")
 
     print(
         f"Generated {success_count}/{total_count} graphs. "

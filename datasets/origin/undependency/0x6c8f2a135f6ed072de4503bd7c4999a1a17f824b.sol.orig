@@ -984,9 +984,9 @@ contract FutureCall {
         Cancelled,
         Missed
     }
-    modifier in_state(State _state) { if (state() == _state) _; }
+    modifier in_state(State _state) { if (state() == _state) _ }
     function state() constant returns (State) {
-        return State(uint(CallLib.state(call)));
+        return State(CallLib.state(call));
     }
     /*
      *  API for FutureXXXXCalls to implement.
@@ -1049,19 +1049,19 @@ contract FutureCall {
     /*
      *  Call Data registration
      */
-    function () {
+    function () returns (bool) {
         /*
          * Fallback to allow sending funds to this contract.
          * (also allows registering raw call data)
          */
         // only scheduler can register call data.
-        if (msg.sender != schedulerAddress) return;
+        if (msg.sender != schedulerAddress) return false;
         // cannot write over call data
-        if (call.callData.length > 0) return;
+        if (call.callData.length > 0) return false;
         var _state = state();
-        if (_state != State.Pending && _state != State.Unclaimed && _state != State.Claimed) return;
+        if (_state != State.Pending && _state != State.Unclaimed && _state != State.Claimed) return false;
         call.callData = msg.data;
-        return;
+        return true;
     }
     function registerData() public returns (bool) {
         // only scheduler can register call data.
@@ -1122,7 +1122,7 @@ contract FutureBlockCall is FutureCall {
                              uint _requiredGas,
                              uint16 _requiredStackDepth,
                              uint _basePayment,
-                             uint _baseDonation) payable
+                             uint _baseDonation)
         FutureCall(_schedulerAddress, _requiredGas, _requiredStackDepth, _contractAddress, _abiSignature, _callData, _callValue, _basePayment, _baseDonation)
     {
         // parent contract FutureCall
@@ -1265,7 +1265,7 @@ library SchedulerLib {
             requiredGas: requiredGas,
             basePayment: basePayment,
             baseDonation: baseDonation,
-            endowment: endowment
+            endowment: endowment,
         });
         return _scheduleCall(callIndex, callConfig);
     }
@@ -1288,7 +1288,7 @@ library SchedulerLib {
             requiredGas: uints[2],
             basePayment: uints[3],
             baseDonation: uints[4],
-            endowment: uints[5]
+            endowment: uints[5],
         });
         return _scheduleCall(callIndex, callConfig);
     }
@@ -1367,7 +1367,7 @@ contract Scheduler {
         return SchedulerLib.getMinimumGracePeriod();
     }
     // Default payment and donation values
-    modifier only_known_call { if (isKnownCall(msg.sender)) _; }
+    modifier only_known_call { if (isKnownCall(msg.sender)) _ }
     function updateDefaultPayment() public only_known_call {
         var call = FutureBlockCall(msg.sender);
         var basePayment = call.basePayment();
